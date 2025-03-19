@@ -1,4 +1,3 @@
-import useTalhaStore from "@/store/useStore";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { service } from "@/data/service";

@@ -80,7 +80,7 @@ export const service = [
     icon: <Home size={15} />,
     path: "/services/Smart Homes",
     description:
-      "Bring today’s cutting edge technology right into your home with ease. Internet of Things allows you to control the utilities and features of your home via the Internet, at the same time making life more convenient and secure.Home automation can be a chore, let us deliver customized routines for your lifestyle. Your Home tailored to Your Liking & Commands.",
+      "Bring todays cutting edge technology right into your home with ease. Internet of Things allows you to control the utilities and features of your home via the Internet, at the same time making life more convenient and secure.Home automation can be a chore, let us deliver customized routines for your lifestyle. Your Home tailored to Your Liking & Commands.",
     align: "left",
   },
 ];
