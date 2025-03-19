@@ -9,7 +9,7 @@ import LoadingScreen from "@/components/utils/loadingScreen/LoadingScreen";
 import useTalhaStore from "@/store/useStore";
 import { useScroll } from "framer-motion";
 import Lenis from "lenis";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 export default function Home() {
   const { isLoading, setIsLoading } = useTalhaStore();
@@ -61,8 +61,8 @@ export default function Home() {
 
       <main className="min-h-screen bg-[#001420] bg-custom-gradient ">
         <div className="container flex flex-col items-center justify-center h-[90vh] relative logo">
-          <h2 className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-2xl/5xl font-nunito font-bold ">
-            Embracing Today's Technology
+          <h2 className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-xl/4xl font-nunito font-bold ">
+            Embracing Todays Technology
           </h2>
           <Button className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2">
             Get Started

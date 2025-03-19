@@ -77,7 +77,7 @@ export default function CameraAnimation({ scrollY }) {
             start: "top center",
             end: "bottom bottom",
             scrub: 0.5,
-            markers: true,
+            // markers: true,
           },
         },
         "20%"
@@ -93,7 +93,6 @@ export default function CameraAnimation({ scrollY }) {
           start: "top center",
           end: "bottom bottom",
           scrub: 0.5,
-          markers: true,
         },
       }).to(
         cameraTarget,
@@ -107,7 +106,6 @@ export default function CameraAnimation({ scrollY }) {
             start: "top center",
             end: "bottom bottom",
             scrub: 0.5,
-            markers: true,
           },
         },
         "<"
