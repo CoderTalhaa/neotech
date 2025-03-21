@@ -7,16 +7,16 @@ export function Camera({ scrollY }) {
   const { nodes, materials } = useGLTF("/models/camera.glb");
   const ref = useRef();
 
-  const x = useTransform(scrollY, [0, 0.1], [5, 1]);
+  // const x = useTransform(scrollY, [0, 0.1], [5, 1]);
 
   useFrame(() => {
     if (ref.current) {
-      ref.current.position.x = x.get();
+      // ref.current.position.x = x.get();
     }
   });
 
   return (
-    <group ref={ref} scale={0.7} rotation={[0, Math.PI / 2, 0]} dispose={null}>
+    <group ref={ref} dispose={null}>
       <mesh
         castShadow
         receiveShadow

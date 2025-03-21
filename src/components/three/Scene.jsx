@@ -7,10 +7,8 @@ import {
 import { Canvas } from "@react-three/fiber";
 import Exp from "./experience/Exp";
 import { Suspense, useState, useEffect } from "react";
-import CameraRig from "./experience/CameraRig";
 import CameraLogger from "./helper/Cameralogger";
 import CameraAnimation from "./experience/CameraAnimation";
-import { Camera } from "./experience/Camera";
 
 export default function Scene({ scrollY }) {
   const [eventSource, setEventSource] = useState(null);
@@ -36,10 +34,7 @@ export default function Scene({ scrollY }) {
         far={1000}
       />
       <Suspense fallback={null}>
-        <CameraRig>
-          <Exp />
-        </CameraRig>
-        <Camera scrollY={scrollY} />
+        <Exp scrollY={scrollY} />
       </Suspense>
 
       <CameraAnimation scrollY={scrollY} />

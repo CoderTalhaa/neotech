@@ -3,6 +3,7 @@ import Scene from "@/components/three/Scene";
 import Contact from "@/components/ui/Contact";
 import Marque from "@/components/ui/Marque";
 import Section1 from "@/components/ui/Section1";
+import Services from "@/components/ui/Services";
 import Button from "@/components/utils/Button";
 import Cursor from "@/components/utils/Cursor";
 import LoadingScreen from "@/components/utils/loadingScreen/LoadingScreen";
@@ -16,7 +17,7 @@ export default function Home() {
 
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.1,
+      lerp: 0.06,
       smooth: true,
     });
 
@@ -47,17 +48,14 @@ export default function Home() {
 
   const { scrollYProgress } = useScroll({
     target: section1,
-    offset: ["start 70%", "end end"],
+    offset: ["start 80%", "end end"],
   });
-
-  useEffect(() => {
-    console.log(section1.current.getBoundingClientRect().height);
-  }, []);
 
   return (
     <>
       {isLoading && <LoadingScreen setIsLoading={setIsLoading} />}
       <Cursor />
+      <Scene scrollY={scrollYProgress} />
 
       <main className="min-h-screen bg-[#001420] bg-custom-gradient ">
         <div className="container flex flex-col items-center justify-center h-[90vh] relative logo">
@@ -70,11 +68,11 @@ export default function Home() {
         </div>
         <Marque />
       </main>
-      <div ref={section1}>
-        <Section1 />
+      <div ref={section1} className="relative">
+        <Section1 scrollY={scrollYProgress} />
+        <Services scrollY={scrollYProgress} />
       </div>
       <Contact />
-      <Scene scrollY={scrollYProgress} />
     </>
   );
 }

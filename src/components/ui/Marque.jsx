@@ -23,7 +23,7 @@ export default function Marque() {
       gradientColor={"#001420"}
       gradientWidth={200}
       autoFill={true}
-      className="w-full bg-[#001e30] bg-clip-padding backdrop-filter  backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100"
+      className="w-full relative bg-[#001e30] bg-clip-padding backdrop-filter  backdrop-blur bg-opacity-10 backdrop-saturate-100 backdrop-contrast-100"
     >
       {images.map((src, index) => (
         <div key={index} className="mx-10 w-32">

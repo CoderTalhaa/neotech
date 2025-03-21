@@ -12,8 +12,7 @@ export function Logo(props) {
 
   useGSAP(() => {
     gsap.to(ref.current.position, {
-      y: 3.2,
-      duration: 5,
+      y: 5,
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".logo",

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const useTalhaStore = create((set) => ({
-  isLoading: true,
+  isLoading: false,
   setIsLoading: (state) => set({ isLoading: state }),
 }));
 

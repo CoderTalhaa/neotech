@@ -21,7 +21,7 @@ export default function Contact() {
     console.log("Form submitted:", formData);
   };
   return (
-    <div className="min-h-[90%] flex items-center justify-center p-4 sm:p-6">
+    <div className="min-h-[90%] relative z-10 flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-4xl rounded-xl bg-custom-gradient backdrop-blur-sm border border-slate-700 shadow-xl overflow-hidden">
         <div className="p-6 sm:p-10">
           <h1 className="text-center text-white text-3xl sm:text-4xl font-medium mb-8">

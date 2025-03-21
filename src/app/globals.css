@@ -44,10 +44,10 @@ body {
   left: 0px;
   width: 100vw !important;
   height: 100vh !important;
-  z-index: 0;
+  z-index: 2;
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0px;
 }
 ::-webkit-scrollbar-thumb {
@@ -55,7 +55,7 @@ body {
 }
 ::-webkit-scrollbar-track {
   background-color: #000000;
-} */
+}
 
 img {
   display: block;

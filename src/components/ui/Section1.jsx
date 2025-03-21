@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { service } from "@/data/service";
 
@@ -11,11 +11,12 @@ const textVariants = {
   }),
 };
 
-export default function Section1() {
+export default function Section1({ scrollY }) {
   const ref = useRef();
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+
   return (
-    <section className="bg-[#000e16] relative pt-14 section1 ">
+    <section className="bg-[#000e16] relative pt-14 section1 h-[1200vh]">
       <div className="container flex flex-col ">
         <div className="flex flex-col gap-2 max-w-2xl">
           <h1 className="~text-xl/3xl font-primary font-semibold">
@@ -60,7 +61,7 @@ export default function Section1() {
         <h1 className="~text-2xl/5xl text-center mt-28 font-bold">
           Our Services
         </h1>
-        <Service />
+        {/* <Service /> */}
       </div>
     </section>
   );
