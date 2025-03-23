@@ -9,8 +9,11 @@ import Exp from "./experience/Exp";
 import { Suspense, useState, useEffect } from "react";
 import CameraLogger from "./helper/Cameralogger";
 import CameraAnimation from "./experience/CameraAnimation";
+import CameraRig from "./experience/CameraRig";
+import { Logo } from "./experience/model/Logo";
+import TechnoLogo from "./experience/TechnoLogo";
 
-export default function Scene({ scrollY }) {
+export default function Scene({ scrollY, scrollY2 }) {
   const [eventSource, setEventSource] = useState(null);
 
   useEffect(() => {
@@ -34,10 +37,14 @@ export default function Scene({ scrollY }) {
         far={1000}
       />
       <Suspense fallback={null}>
+        <CameraRig>
+          <Logo position={[0, -0.2, 0]} scale={0.8} />
+        </CameraRig>
         <Exp scrollY={scrollY} />
+        <TechnoLogo scrollY={scrollY2} />
       </Suspense>
 
-      <CameraAnimation scrollY={scrollY} />
+      {/* <CameraAnimation scrollY={scrollY} /> */}
 
       {/* <axesHelper scale={20} /> */}
 

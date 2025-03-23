@@ -3,12 +3,14 @@ import Scene from "@/components/three/Scene";
 import Contact from "@/components/ui/Contact";
 import Marque from "@/components/ui/Marque";
 import Section1 from "@/components/ui/Section1";
+import Section2 from "@/components/ui/Section2";
+import SerText from "@/components/ui/SerText";
 import Services from "@/components/ui/Services";
 import Button from "@/components/utils/Button";
 import Cursor from "@/components/utils/Cursor";
 import LoadingScreen from "@/components/utils/loadingScreen/LoadingScreen";
 import useTalhaStore from "@/store/useStore";
-import { useScroll } from "framer-motion";
+import { useScroll, useSpring } from "framer-motion";
 import Lenis from "lenis";
 import React, { useEffect, useRef } from "react";
 
@@ -48,14 +50,33 @@ export default function Home() {
 
   const { scrollYProgress } = useScroll({
     target: section1,
-    offset: ["start 80%", "end end"],
+    offset: ["start 30%", "end end"],
+  });
+
+  const smoothScrollY = useSpring(scrollYProgress, {
+    stiffness: 300,
+    damping: 40,
+    mass: 0.2,
+  });
+
+  const section2 = useRef(null);
+
+  const { scrollYProgress: scrollYProgress2 } = useScroll({
+    target: section2,
+    offset: ["start 50%", "end end"],
+  });
+
+  const smoothScrollY2 = useSpring(scrollYProgress2, {
+    stiffness: 100,
+    damping: 20,
+    mass: 0.5,
   });
 
   return (
     <>
       {isLoading && <LoadingScreen setIsLoading={setIsLoading} />}
       <Cursor />
-      <Scene scrollY={scrollYProgress} />
+      <Scene scrollY={smoothScrollY} scrollY2={smoothScrollY2} />
 
       <main className="min-h-screen bg-[#001420] bg-custom-gradient ">
         <div className="container flex flex-col items-center justify-center h-[90vh] relative logo">
@@ -68,9 +89,14 @@ export default function Home() {
         </div>
         <Marque />
       </main>
+      <SerText />
       <div ref={section1} className="relative">
-        <Section1 scrollY={scrollYProgress} />
-        <Services scrollY={scrollYProgress} />
+        <Section1 scrollY={smoothScrollY} />
+        <Services scrollY={smoothScrollY} />
+      </div>
+
+      <div ref={section2} className="relative ">
+        <Section2 scrollY={smoothScrollY2} />
       </div>
       <Contact />
     </>

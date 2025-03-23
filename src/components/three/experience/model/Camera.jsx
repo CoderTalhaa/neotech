@@ -1,22 +1,12 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useTransform } from "framer-motion";
-import { useFrame } from "@react-three/fiber";
 
-export function Camera({ scrollY }) {
+export function Camera(props) {
   const { nodes, materials } = useGLTF("/models/camera.glb");
   const ref = useRef();
 
-  // const x = useTransform(scrollY, [0, 0.1], [5, 1]);
-
-  useFrame(() => {
-    if (ref.current) {
-      // ref.current.position.x = x.get();
-    }
-  });
-
   return (
-    <group ref={ref} dispose={null}>
+    <group ref={ref} dispose={null} {...props}>
       <mesh
         castShadow
         receiveShadow

@@ -1,8 +1,24 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion-3d";
+import { useFrame } from "@react-three/fiber";
 
-export function Case(props) {
+export function Case({ scrollY, ...props }) {
   const { nodes, materials } = useGLTF("/models/case.glb");
+
+  const glassRef = useRef();
+
+  const caseRY = useTransform(
+    scrollY,
+    [0.065, 0.08, 0.1, 0.15],
+    [0, Math.PI / 2, Math.PI / 2, 0]
+  );
+
+  useFrame(() => {
+    glassRef.current.rotation.y = caseRY.get();
+  });
+
   return (
     <group {...props} dispose={null}>
       <group position={[0.012, 0.297, 0.032]}>
@@ -80,7 +96,8 @@ export function Case(props) {
         material={materials["Material.003"]}
         position={[-0.061, 0.295, 0.17]}
       />
-      <mesh
+      <motion.mesh
+        ref={glassRef}
         castShadow
         receiveShadow
         geometry={nodes.glass.geometry}
