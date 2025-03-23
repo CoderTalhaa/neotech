@@ -6,7 +6,7 @@ import { Logo2 } from "./model/Logo2";
 export default function TechnoLogo({ scrollY }) {
   const logoRef = useRef();
 
-  const springConf = { stiffness: 100, damping: 30, mass: 0.5 };
+  const springConf = { stiffness: 100, damping: 20, mass: 0.2 };
 
   // Logo animation based on scrollY (0 to 1 over 500vh)
   const logoX = useSpring(

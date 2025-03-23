@@ -11,7 +11,7 @@ export function Case({ scrollY, ...props }) {
 
   const caseRY = useTransform(
     scrollY,
-    [0.065, 0.08, 0.1, 0.15],
+    [0.065, 0.08, 0.1, 0.2],
     [0, Math.PI / 2, Math.PI / 2, 0]
   );
 

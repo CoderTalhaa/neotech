@@ -57,52 +57,61 @@ const descVariants = {
   },
 };
 
+// Child component for each service item
+function ServiceItem({ name, description, isEven }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: false, // Animates every time it enters view
+    margin: "0px 0px 0px 0px", // Triggers when fully in viewport
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`h-[100vh] flex flex-col justify-center ${
+        isEven ? "items-start" : "items-end"
+      }`}
+    >
+      <div className="flex flex-col gap-2">
+        <h1 className="~text-2xl/6xl font-primary font-semibold text-teal-300 w-[570px]">
+          {name.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              custom={index}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              variants={charVariants}
+              className="inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </h1>
+        <motion.p
+          className="~text-base/2xl font-secondary tracking-tight text-white w-[500px]"
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={descVariants}
+        >
+          {description}
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Section2({ scrollY }) {
   return (
     <section className="bg-[#000e16] relative mt-14 section2">
       <div className="container flex flex-col">
-        {data.map((d, i) => {
-          const ref = useRef();
-          const isInView = useInView(ref, {
-            once: false, // Animates only once when entering view
-            margin: "0px 0px 0px 0px", // Triggers 100px before entering viewport
-          });
-
-          return (
-            <motion.div
-              key={i}
-              ref={ref}
-              className={`h-[100vh] flex flex-col justify-center ${
-                i % 2 === 0 ? "items-start" : "items-end"
-              }`}
-            >
-              <div className="flex flex-col gap-2 ">
-                <h1 className="~text-2xl/6xl font-primary font-semibold text-teal-300 w-[570px]">
-                  {d.name.split("").map((char, index) => (
-                    <motion.span
-                      key={index}
-                      custom={index}
-                      initial="hidden"
-                      animate={isInView ? "visible" : "hidden"}
-                      variants={charVariants}
-                      className="inline-block"
-                    >
-                      {char === " " ? "\u00A0" : char}
-                    </motion.span>
-                  ))}
-                </h1>
-                <motion.p
-                  className="~text-base/2xl font-secondary tracking-tight text-white w-[500px]"
-                  initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
-                  variants={descVariants}
-                >
-                  {d.description}
-                </motion.p>
-              </div>
-            </motion.div>
-          );
-        })}
+        {data.map((d, i) => (
+          <ServiceItem
+            key={i}
+            name={d.name}
+            description={d.description}
+            isEven={i % 2 === 0}
+          />
+        ))}
       </div>
     </section>
   );

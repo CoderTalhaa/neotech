@@ -31,33 +31,43 @@ const data = [
     positionX: "5%",
   },
 ];
+// Child component for each service item
+function ServiceItem({ name, description, range, positionX, scrollY }) {
+  const opacity = useTransform(
+    scrollY,
+    range, // [start, fade-in, fade-out, end]
+    [0, 1, 1, 0]
+  );
+
+  return (
+    <motion.div
+      className="flex flex-col gap-2 absolute translate-x-1/2"
+      style={{ opacity, left: positionX, textAlign: "start" }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+    >
+      <h1 className="~text-2xl/6xl text-teal-300 font-primary font-bold tracking-wide w-[400px]">
+        {name}
+      </h1>
+      <span className="text-white text-md font-secondary w-[300px]">
+        {description}
+      </span>
+    </motion.div>
+  );
+}
 
 export default function Services({ scrollY }) {
   return (
     <div className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center pointer-events-none z-10">
-      {data.map((item, index) => {
-        const opacity = useTransform(
-          scrollY,
-          item.range, // [start, fade-in, fade-out, end]
-          [0, 1, 1, 0]
-        );
-
-        return (
-          <motion.div
-            key={index}
-            className="flex flex-col gap-2 absolute translate-x-1/2"
-            style={{ opacity, left: item.positionX, textAlign: "start" }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          >
-            <h1 className="~text-2xl/6xl text-teal-300 font-primary font-bold tracking-wide w-[400px]">
-              {item.name}
-            </h1>
-            <span className="text-white text-md font-secondary w-[300px]">
-              {item.description}
-            </span>
-          </motion.div>
-        );
-      })}
+      {data.map((item, index) => (
+        <ServiceItem
+          key={index}
+          name={item.name}
+          description={item.description}
+          range={item.range}
+          positionX={item.positionX}
+          scrollY={scrollY}
+        />
+      ))}
     </div>
   );
 }

@@ -84,7 +84,7 @@ function Modal({ open, setOpen }) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [open]);
+  }, [open, setOpen]);
 
   const variants = {
     open: {
