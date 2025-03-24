@@ -62,18 +62,18 @@ function ServiceItem({ name, description, isEven }) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: false, // Animates every time it enters view
-    margin: "0px 0px 0px 0px", // Triggers when fully in viewport
+    margin: "-100px 0px 0px 0px", // Triggers when fully in viewport
   });
 
   return (
     <motion.div
       ref={ref}
       className={`h-[100vh] flex flex-col justify-center ${
-        isEven ? "items-start" : "items-end"
-      }`}
+        isEven ? "md:items-start" : "md:items-end"
+      }  `}
     >
-      <div className="flex flex-col gap-2">
-        <h1 className="~text-2xl/6xl font-primary font-semibold text-teal-300 w-[570px]">
+      <div className="flex flex-col gap-2 bg-transparent backdrop-blur-md border border-slate-700 shadow-xl p-4 rounded-xl lg:border-0 lg:shadow-none lg:backdrop-blur-none lg:p-0 lg:rounded-none ">
+        <h1 className="~text-2xl/6xl font-primary font-semibold text-teal-300 max-w-[570px]">
           {name.split("").map((char, index) => (
             <motion.span
               key={index}
@@ -88,7 +88,7 @@ function ServiceItem({ name, description, isEven }) {
           ))}
         </h1>
         <motion.p
-          className="~text-base/2xl font-secondary tracking-tight text-white w-[500px]"
+          className="~text-base/2xl font-secondary tracking-tight text-white max-w-[500px]"
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={descVariants}
@@ -102,7 +102,7 @@ function ServiceItem({ name, description, isEven }) {
 
 export default function Section2({ scrollY }) {
   return (
-    <section className="bg-[#000e16] relative mt-14 section2">
+    <section className="relative mt-14 section2 z-[2]">
       <div className="container flex flex-col">
         {data.map((d, i) => (
           <ServiceItem

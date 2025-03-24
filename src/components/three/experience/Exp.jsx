@@ -88,7 +88,7 @@ export default function Exp({ scrollY }) {
           scrollY={scrollY}
           scale={2.5}
           rotation={[0, Math.PI / -2.5, 0]}
-          position={[0, -0.8, 0]}
+          position={[0, -0.8, -0.2]}
         />
       </group>
 
@@ -96,19 +96,23 @@ export default function Exp({ scrollY }) {
         <Network
           scale={2.6}
           rotation={[0, Math.PI / -1.5, 0]}
-          position={[0, -0.7, 0]}
+          position={[0, -0.7, -0.3]}
         />
       </group>
 
       <group ref={cameraRef}>
-        <Camera scale={0.7} rotation={[0, Math.PI / -5, 0]} />
+        <Camera
+          scale={0.7}
+          rotation={[0, Math.PI / -5, 0]}
+          position={[0, 0, 0.5]}
+        />
       </group>
 
       <group ref={meterRef}>
         <Meter
           scale={1.3}
           rotation={[0, Math.PI / 1.1, 0]}
-          position={[0, -0.5, 0]}
+          position={[0, -0.5, 0.3]}
         />
       </group>
     </>

@@ -21,6 +21,7 @@ export default function Home() {
     const lenis = new Lenis({
       lerp: 0.06,
       smooth: true,
+      wheelMultiplier: 0.5,
     });
 
     lenis.stop();
@@ -80,7 +81,7 @@ export default function Home() {
 
       <main className="min-h-screen bg-[#001420] bg-custom-gradient ">
         <div className="container flex flex-col items-center justify-center h-[90vh] relative logo">
-          <h2 className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-xl/4xl font-nunito font-bold ">
+          <h2 className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-xl/4xl font-nunito font-bold text-center">
             Embracing Todays Technology
           </h2>
           <Button className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2">

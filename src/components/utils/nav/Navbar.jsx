@@ -49,6 +49,7 @@ export default function Navbar() {
           <NavLink href="/about">About</NavLink>
           <li>
             <p
+              data-hover
               className={`flex items-center gap-1 cursor-pointer ${
                 pathname === "/services" ? "text-teal-300" : ""
               }`}
@@ -117,13 +118,13 @@ function Modal({ open, setOpen }) {
             initial="closed"
             exit="closed"
             animate={open ? "open" : "closed"}
-            className="absolute top-16 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-[#f7f5f5] rounded-lg  text-black z-10 overflow-clip "
+            className="absolute top-16 left-1/2 -translate-x-1/2 max-w-[900px] min-h-[400px] bg-[#f7f5f5] rounded-lg  text-black z-10 overflow-clip "
           >
             <div className="flex flex-col gap-2 p-2">
               <h2 className="~text-2xl/5xl font-primary font-semibold">
                 Services
               </h2>
-              <div className="p-2">
+              <div className="p-3">
                 <motion.ul
                   className="grid grid-cols-3 gap-5"
                   initial="hidden"

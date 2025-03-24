@@ -18,7 +18,7 @@ export function Logo(props) {
       scrollTrigger: {
         trigger: ".logo",
         start: "top+=20% top",
-        end: "bottom center-=10%",
+        end: "bottom center-=40%",
         scrub: 1,
         // markers: true,
       },

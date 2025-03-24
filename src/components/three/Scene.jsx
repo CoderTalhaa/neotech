@@ -7,11 +7,11 @@ import {
 import { Canvas } from "@react-three/fiber";
 import Exp from "./experience/Exp";
 import { Suspense, useState, useEffect } from "react";
-import CameraLogger from "./helper/Cameralogger";
 import CameraAnimation from "./experience/CameraAnimation";
 import CameraRig from "./experience/CameraRig";
 import { Logo } from "./experience/model/Logo";
 import TechnoLogo from "./experience/TechnoLogo";
+import { useMediaQuery } from "react-responsive";
 
 export default function Scene({ scrollY, scrollY2 }) {
   const [eventSource, setEventSource] = useState(null);
@@ -19,6 +19,10 @@ export default function Scene({ scrollY, scrollY2 }) {
   useEffect(() => {
     setEventSource(window);
   }, []);
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 1000px)",
+  });
 
   return (
     <Canvas
@@ -38,7 +42,7 @@ export default function Scene({ scrollY, scrollY2 }) {
       />
       <Suspense fallback={null}>
         <CameraRig>
-          <Logo position={[0, -0.2, 0]} scale={0.8} />
+          <Logo position={[0, -0.2, 0]} scale={isDesktopOrLaptop ? 0.8 : 0.4} />
         </CameraRig>
         <Exp scrollY={scrollY} />
         <TechnoLogo scrollY={scrollY2} />

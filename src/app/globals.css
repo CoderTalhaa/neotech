@@ -47,15 +47,19 @@ body {
   z-index: 2;
 }
 
-/* ::-webkit-scrollbar {
-  width: 0px;
+::-webkit-scrollbar {
+  width: 6px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background-color: #010100;
+  background: #0d93d1;
+  border-radius: 20px;
 }
+
 ::-webkit-scrollbar-track {
-  background-color: #000000;
-} */
+  background: transparent;
+  border-radius: 20px;
+}
 
 img {
   display: block;

@@ -8,7 +8,7 @@ export default function NavLink({ href, children, className }) {
   const isActive = pathname === href;
 
   return (
-    <li>
+    <li data-hover>
       <Link
         href={href}
         className={twMerge(
