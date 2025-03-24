@@ -1,5 +1,5 @@
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion, useTransform } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
 
 const data = [
   // First 4 services for Case, Network, Camera, Meter
@@ -10,6 +10,8 @@ const data = [
     range: [0.065, 0.075, 0.175, 0.185], // Delayed fade-in (0.075) after Case stay starts (0.075), out with exit (0.175)
     positionX: "80%",
     positionY: "50%",
+    spx: "50%",
+    spy: "70%",
   },
   {
     name: "Network Infrastructure",
@@ -18,6 +20,8 @@ const data = [
     range: [0.315, 0.325, 0.425, 0.435], // Delayed fade-in (0.325) after Network stay starts (0.325), out with exit (0.425)
     positionX: "80%",
     positionY: "50%",
+    spx: "50%",
+    spy: "70%",
   },
   {
     name: "Home & Office Security",
@@ -26,6 +30,8 @@ const data = [
     range: [0.565, 0.575, 0.675, 0.685], // Delayed fade-in (0.575) after Camera stay starts (0.575), out with exit (0.675)
     positionX: "20%",
     positionY: "50%",
+    spx: "50%",
+    spy: "70%",
   },
   {
     name: "Remote Monitoring",
@@ -34,6 +40,8 @@ const data = [
     range: [0.815, 0.825, 0.925, 0.935], // Delayed fade-in (0.825) after Meter stay starts (0.825), out with exit (0.925)
     positionX: "20%",
     positionY: "50%",
+    spx: "50%",
+    spy: "70%",
   },
 ];
 
@@ -44,7 +52,6 @@ function ServiceItem({
   positionX,
   positionY,
   scrollY,
-  isDesktopOrLaptop,
 }) {
   const opacity = useTransform(
     scrollY,
@@ -57,8 +64,8 @@ function ServiceItem({
       className="flex flex-col ~w-80/96 absolute -translate-x-1/2 -translate-y-1/2  gap-2 bg-transparent backdrop-blur-md border border-slate-700 shadow-xl p-4 rounded-xl lg:border-0 lg:shadow-none lg:backdrop-blur-none lg:p-0 lg:rounded-none "
       style={{
         opacity,
-        top: isDesktopOrLaptop ? positionY : "70%",
-        left: isDesktopOrLaptop ? positionX : "50%",
+        top: positionY,
+        left: positionX,
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
@@ -71,9 +78,8 @@ function ServiceItem({
 }
 
 export default function Services({ scrollY }) {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1224px)",
-  });
+  const isMobile = useMediaQuery("(max-width: 768px)", false);
+
   return (
     <div className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center pointer-events-none z-10 ">
       {data.map((item, index) => (
@@ -82,10 +88,9 @@ export default function Services({ scrollY }) {
           name={item.name}
           description={item.description}
           range={item.range}
-          positionX={item.positionX}
-          positionY={item.positionY}
+          positionX={isMobile ? item.spx : item.positionX}
+          positionY={isMobile ? item.spy : item.positionY}
           scrollY={scrollY}
-          isDesktopOrLaptop={isDesktopOrLaptop}
         />
       ))}
     </div>
