@@ -6,7 +6,7 @@ export default function Button({ children, className }) {
     <button
       data-hover
       className={twMerge(
-        "bg-text hover:bg-[#00d5ffc9] text-black font-medium py-2.5 px-6 rounded-full transition-colors duration-200",
+        "bg-text hover:bg-[#00d5ffc9] text-white font-medium py-2.5 px-6 rounded-full transition-colors duration-200",
         className
       )}
     >

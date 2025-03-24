@@ -32,7 +32,7 @@ module.exports = {
         menuWhite: "#f3f2f9",
         menublack: "#001420",
         bg: "#000e16",
-        text: "#FDE047",
+        text: "#00D4FF",
       },
       backgroundImage: {
         "custom-gradient":
