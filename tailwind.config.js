@@ -27,10 +27,12 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#20AAba",
-        button: "#40b59d",
+        primary: "#20aAba",
+        button: "#00D4FF",
         menuWhite: "#f3f2f9",
         menublack: "#001420",
+        bg: "#000e16",
+        text: "#FDE047",
       },
       backgroundImage: {
         "custom-gradient":
@@ -38,6 +40,8 @@ module.exports = {
         "tech-gradient": "linear-gradient(to bottom right, #001219, #003049)",
         "card-gradient":
           "radial-gradient(131.66% 109.77% at 50% 97.75%, transparent 37.41%, #01152280 69.27%, #20AAba 100%)",
+        "gradient-radial-top":
+          "radial-gradient(circle at top center, hsla(222, 80%, 60%, 0.5) 0%, hsla(222, 0%, 0%, 0) 50%, hsla(222, 0%, 0%, 0) 100%)",
       },
     },
   },

@@ -35,8 +35,7 @@ export default function SerText() {
             <motion.span key={i} custom={i} variants={textVariants}>
               {i === 1 ? (
                 <>
-                  for{" "}
-                  <span className="text-[#30f3e3]">Superior Technology</span>
+                  for <span className="text-text">Superior Technology</span>
                 </>
               ) : (
                 text

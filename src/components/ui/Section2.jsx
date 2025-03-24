@@ -73,7 +73,7 @@ function ServiceItem({ name, description, isEven }) {
       }  `}
     >
       <div className="flex flex-col gap-2 bg-transparent backdrop-blur-md border border-slate-700 shadow-xl p-4 rounded-xl lg:border-0 lg:shadow-none lg:backdrop-blur-none lg:p-0 lg:rounded-none ">
-        <h1 className="~text-2xl/6xl font-primary font-semibold text-teal-300 max-w-[570px]">
+        <h1 className="~text-2xl/6xl font-primary font-semibold text-text max-w-[570px]">
           {name.split("").map((char, index) => (
             <motion.span
               key={index}

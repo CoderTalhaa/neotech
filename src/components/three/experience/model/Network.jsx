@@ -10,8 +10,15 @@ export function Network(props) {
           castShadow
           receiveShadow
           geometry={nodes["Part1-mesh042"].geometry}
-          material={materials["Paint Matte White #1"]}
-        />
+          // material={materials["Paint Matte White #1"]}
+        >
+          <meshStandardMaterial
+            color={"#ffffff"}
+            roughness={0.7}
+            metalness={0.7}
+          />
+        </mesh>
+
         <mesh
           castShadow
           receiveShadow

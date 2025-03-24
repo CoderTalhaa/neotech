@@ -51,7 +51,7 @@ export default function Navbar() {
             <p
               data-hover
               className={`flex items-center gap-1 cursor-pointer ${
-                pathname === "/services" ? "text-teal-300" : ""
+                pathname === "/services" ? "text-button" : ""
               }`}
               onClick={() => setOpenModal((prev) => !prev)}
             >

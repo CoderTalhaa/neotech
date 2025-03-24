@@ -69,7 +69,7 @@ function ServiceItem({
       }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <h1 className="~text-2xl/6xl text-teal-300 font-primary font-bold tracking-wide ">
+      <h1 className="~text-2xl/6xl text-text font-primary font-bold tracking-wide ">
         {name}
       </h1>
       <span className="text-white text-md font-secondary ">{description}</span>

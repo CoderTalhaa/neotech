@@ -133,7 +133,7 @@ export default function EnhancedCursor() {
             ? "transparent"
             : isPointer
             ? "rgba(255, 0, 255, 0.8)"
-            : "rgba(0, 255, 255, 0.6)",
+            : "#FDE047",
           borderRadius: "50%",
           scale: isClicking ? 0.8 : 1,
         }}

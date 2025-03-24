@@ -53,7 +53,7 @@ export default function Scene({ scrollY, scrollY2 }) {
       {/* <axesHelper scale={20} /> */}
 
       {/* <OrbitControls /> */}
-      <ambientLight intensity={1} />
+      <ambientLight intensity={0.5} />
       <Environment preset="warehouse" />
     </Canvas>
   );

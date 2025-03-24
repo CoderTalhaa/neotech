@@ -26,8 +26,14 @@ export function Case({ scrollY, ...props }) {
           castShadow
           receiveShadow
           geometry={nodes.Cube006.geometry}
-          material={materials["Material.002"]}
-        />
+          // material={materials["Material.002"]}
+        >
+          <meshStandardMaterial
+            color={"#212121"}
+            roughness={0.5}
+            metalness={0.5}
+          />
+        </mesh>
         <mesh
           castShadow
           receiveShadow

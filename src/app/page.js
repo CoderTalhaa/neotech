@@ -9,6 +9,7 @@ import Services from "@/components/ui/Services";
 import Button from "@/components/utils/Button";
 import Cursor from "@/components/utils/Cursor";
 import LoadingScreen from "@/components/utils/loadingScreen/LoadingScreen";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import useTalhaStore from "@/store/useStore";
 import { useScroll, useSpring } from "framer-motion";
 import Lenis from "lenis";
@@ -17,11 +18,14 @@ import React, { useEffect, useRef } from "react";
 export default function Home() {
   const { isLoading, setIsLoading } = useTalhaStore();
 
+  const isMobile = useMediaQuery("(max-width: 768px)", false);
+
   useEffect(() => {
     const lenis = new Lenis({
-      lerp: 0.06,
+      lerp: isMobile ? 0.1 : 0.06,
       smooth: true,
-      wheelMultiplier: 0.5,
+      wheelMultiplier: isMobile ? 1.2 : 0.5,
+      touchMultiplier: 1.0,
     });
 
     lenis.stop();
@@ -79,7 +83,8 @@ export default function Home() {
       <Cursor />
       <Scene scrollY={smoothScrollY} scrollY2={smoothScrollY2} />
 
-      <main className="min-h-screen bg-[#001420] bg-custom-gradient ">
+      <main className="relative min-h-screen bg-slate-900 bg-gradient-radial-top ">
+        <div className="pointer-events-none absolute inset-0  h-full bg-[url('/img/noisetexture.jpg')] opacity-20 mix-blend-soft-light" />
         <div className="container flex flex-col items-center justify-center h-[90vh] relative logo">
           <h2 className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-xl/4xl font-nunito font-bold text-center">
             Embracing Todays Technology
