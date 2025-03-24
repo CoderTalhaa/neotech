@@ -84,7 +84,6 @@ export default function Home() {
       <Scene scrollY={smoothScrollY} scrollY2={smoothScrollY2} />
 
       <main className="relative min-h-screen bg-bg bg-custom-gradient ">
-        {/* <div className="pointer-events-none absolute inset-0  h-full bg-[url('/img/noisetexture.jpg')] opacity-20 mix-blend-soft-light" /> */}
         <div className="container flex flex-col items-center justify-center h-[90vh] relative logo">
           <h2 className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-xl/4xl font-nunito font-bold text-center">
             Embracing Todays Technology
