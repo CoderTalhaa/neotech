@@ -13,7 +13,7 @@ export default function NotFound() {
             Page Not Found
           </h2>
           <p className="text-gray-400 mb-6">
-            Oops! The page you're looking for seems to have wandered off into
+            Oops! The page youre looking for seems to have wandered off into
             the digital wilderness.
           </p>
         </div>
