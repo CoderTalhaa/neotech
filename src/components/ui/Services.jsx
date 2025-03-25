@@ -98,7 +98,7 @@ export default function Services({ scrollY }) {
   const isMobile = useMediaQuery("(max-width: 768px)", false);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center border z-10">
+    <div className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center z-10">
       {data.map((item, index) => (
         <ServiceItem
           key={index}
