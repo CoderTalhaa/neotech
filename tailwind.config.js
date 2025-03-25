@@ -28,11 +28,11 @@ module.exports = {
     extend: {
       colors: {
         primary: "#20aAba",
-        button: "#00D4FF",
+        button: "#38b2ac",
         menuWhite: "#f3f2f9",
         menublack: "#001420",
         bg: "#000e16",
-        text: "#00D4FF",
+        text: "#38b2ac",
       },
       backgroundImage: {
         "custom-gradient":

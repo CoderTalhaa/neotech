@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, useMotionValue, useSpring, animate } from "framer-motion";
 import React, { useEffect, useState, useRef } from "react";
 
@@ -114,7 +116,7 @@ export default function EnhancedCursor() {
           damping: 20,
           stiffness: 300,
         }}
-        className="fixed pointer-events-none z-50 hidden md:flex items-center justify-center"
+        className="fixed pointer-events-none z-[201] hidden md:flex items-center justify-center"
       />
 
       {/* Inner dot */}
@@ -140,7 +142,7 @@ export default function EnhancedCursor() {
           damping: 25,
           stiffness: 400,
         }}
-        className="fixed pointer-events-none z-50 hidden md:block"
+        className="fixed pointer-events-none z-[201] hidden md:block"
       />
 
       {/* Additional effect for clicking animation */}
@@ -157,7 +159,7 @@ export default function EnhancedCursor() {
           initial={{ width: 8, height: 8, opacity: 0.8 }}
           animate={{ width: 40, height: 40, opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed pointer-events-none z-40 hidden md:block"
+          className="fixed pointer-events-none z-[201] hidden md:block"
         />
       )}
     </>

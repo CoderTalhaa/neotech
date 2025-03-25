@@ -7,7 +7,6 @@ import {
 import { Canvas } from "@react-three/fiber";
 import Exp from "./experience/Exp";
 import { Suspense, useState, useEffect } from "react";
-import CameraAnimation from "./experience/CameraAnimation";
 import CameraRig from "./experience/CameraRig";
 import { Logo } from "./experience/model/Logo";
 import TechnoLogo from "./experience/TechnoLogo";
@@ -47,10 +46,6 @@ export default function Scene({ scrollY, scrollY2 }) {
         <Exp scrollY={scrollY} />
         <TechnoLogo scrollY={scrollY2} />
       </Suspense>
-
-      {/* <CameraAnimation scrollY={scrollY} /> */}
-
-      {/* <axesHelper scale={20} /> */}
 
       {/* <OrbitControls /> */}
       <ambientLight intensity={0.5} />

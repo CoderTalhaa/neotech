@@ -26,7 +26,7 @@ export default function NavLink({ href, children, className }) {
           left: 0;
           bottom: 0;
           height: 1px;
-          background-color: #1e90ff; /* teal-300 equivalent */
+          background-color: #38b2ac; /* teal-300 equivalent */
           width: 0;
           transition: width 0.3s ease-in-out;
         }

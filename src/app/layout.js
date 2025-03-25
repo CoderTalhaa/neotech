@@ -2,6 +2,7 @@ import { PT_Sans_Narrow, Inter, Nunito, Figtree } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/utils/nav/Navbar";
 import Footer from "@/components/ui/Footer";
+import Cursor from "@/components/utils/Cursor";
 
 const pt_sans_narrow = PT_Sans_Narrow({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${pt_sans_narrow.variable} ${inter.variable} ${nunito.variable} antialiased`}
       >
+        <Cursor />
         <Navbar />
         {children}
         <Footer />

@@ -7,7 +7,6 @@ import Section2 from "@/components/ui/Section2";
 import SerText from "@/components/ui/SerText";
 import Services from "@/components/ui/Services";
 import Button from "@/components/utils/Button";
-import Cursor from "@/components/utils/Cursor";
 import LoadingScreen from "@/components/utils/loadingScreen/LoadingScreen";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import useTalhaStore from "@/store/useStore";
@@ -58,11 +57,11 @@ export default function Home() {
     offset: ["start 30%", "end end"],
   });
 
-  // const smoothScrollY = useSpring(scrollYProgress, {
-  //   stiffness: 800,
-  //   damping: 20,
-  //   mass: 0.1,
-  // });
+  const smoothScrollY = useSpring(scrollYProgress, {
+    stiffness: 800,
+    damping: 20,
+    mass: 0.1,
+  });
 
   const section2 = useRef(null);
 
@@ -80,7 +79,6 @@ export default function Home() {
   return (
     <>
       {isLoading && <LoadingScreen setIsLoading={setIsLoading} />}
-      <Cursor />
       <Scene scrollY={scrollYProgress} scrollY2={smoothScrollY2} />
 
       <main className="relative min-h-screen bg-bg bg-custom-gradient ">
@@ -96,7 +94,7 @@ export default function Home() {
       </main>
       <SerText />
       <div ref={section1} className="relative">
-        <Section1 scrollY={scrollYProgress} />
+        <Section1 />
         <Services scrollY={scrollYProgress} />
       </div>
 
