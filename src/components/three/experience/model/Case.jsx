@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import { useSpring, useTransform } from "framer-motion";
+import { useTransform } from "framer-motion";
 import { motion } from "framer-motion-3d";
 import { useFrame } from "@react-three/fiber";
 

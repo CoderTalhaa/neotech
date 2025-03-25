@@ -54,7 +54,7 @@ export default function EnhancedCursor() {
     // Add listeners for elements with data-hover attribute
     const hoverableElements = document.querySelectorAll("[data-hover]");
     const clickableElements = document.querySelectorAll(
-      "a, button, [role='button'], input[type='submit'], input[type='button']"
+      "a, button,li, [role='button'], input[type='submit'], input[type='button']"
     );
 
     const addHoverListeners = (el) => {
@@ -125,15 +125,13 @@ export default function EnhancedCursor() {
           top: inner.y,
           x: "-50%",
           y: "-50%",
+          backgroundColor: isHovering
+            ? "transparent"
+            : "rgba(0, 255, 255, 0.6)",
         }}
         animate={{
           width: isHovering ? 12 : isPointer ? 10 : 16,
           height: isHovering ? 12 : isPointer ? 10 : 16,
-          backgroundColor: isHovering
-            ? "transparent"
-            : isPointer
-            ? "rgba(255, 0, 255, 0.8)"
-            : "rgba(0, 255, 255, 0.6)",
           borderRadius: "50%",
           scale: isClicking ? 0.8 : 1,
         }}

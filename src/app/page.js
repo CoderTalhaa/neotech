@@ -58,11 +58,11 @@ export default function Home() {
     offset: ["start 30%", "end end"],
   });
 
-  const smoothScrollY = useSpring(scrollYProgress, {
-    stiffness: 300,
-    damping: 40,
-    mass: 0.2,
-  });
+  // const smoothScrollY = useSpring(scrollYProgress, {
+  //   stiffness: 800,
+  //   damping: 20,
+  //   mass: 0.1,
+  // });
 
   const section2 = useRef(null);
 
@@ -81,14 +81,14 @@ export default function Home() {
     <>
       {isLoading && <LoadingScreen setIsLoading={setIsLoading} />}
       <Cursor />
-      <Scene scrollY={smoothScrollY} scrollY2={smoothScrollY2} />
+      <Scene scrollY={scrollYProgress} scrollY2={smoothScrollY2} />
 
       <main className="relative min-h-screen bg-bg bg-custom-gradient ">
         <div className="container flex flex-col items-center justify-center h-[90vh] relative logo">
           <h2 className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-xl/4xl font-nunito font-bold text-center">
             Embracing Todays Technology
           </h2>
-          <Button className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Button className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
             Get Started
           </Button>
         </div>
@@ -96,8 +96,8 @@ export default function Home() {
       </main>
       <SerText />
       <div ref={section1} className="relative">
-        <Section1 scrollY={smoothScrollY} />
-        <Services scrollY={smoothScrollY} />
+        <Section1 scrollY={scrollYProgress} />
+        <Services scrollY={scrollYProgress} />
       </div>
 
       <div ref={section2} className="relative ">

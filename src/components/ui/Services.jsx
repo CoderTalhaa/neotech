@@ -1,5 +1,6 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { motion, useTransform } from "framer-motion";
+import Link from "next/link";
 
 const data = [
   // First 4 services for Case, Network, Camera, Meter
@@ -59,21 +60,37 @@ function ServiceItem({
     [0, 1, 1, 0]
   );
 
+  const pointerEvents = useTransform(scrollY, range, [
+    "none",
+    "auto",
+    "auto",
+    "none",
+  ]);
+
   return (
-    <motion.div
-      className="flex flex-col ~w-80/96 absolute -translate-x-1/2 -translate-y-1/2  gap-2 bg-transparent backdrop-blur-md border border-slate-700 shadow-xl p-4 rounded-xl lg:border-0 lg:shadow-none lg:backdrop-blur-none lg:p-0 lg:rounded-none "
-      style={{
-        opacity,
-        top: positionY,
-        left: positionX,
-      }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-    >
-      <h1 className="~text-2xl/6xl text-text font-primary font-bold tracking-wide ">
-        {name}
-      </h1>
-      <span className="text-white text-md font-secondary ">{description}</span>
-    </motion.div>
+    <>
+      <motion.div
+        className=" flex flex-col ~w-80/96 absolute -translate-x-1/2 -translate-y-1/2  gap-2 bg-transparent backdrop-blur-md border border-slate-700 shadow-xl p-4 rounded-xl lg:border-0 lg:shadow-none lg:backdrop-blur-none lg:p-0 lg:rounded-none"
+        style={{
+          opacity,
+          top: positionY,
+          left: positionX,
+          pointerEvents,
+        }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+      >
+        <Link
+          data-hover
+          className="~text-2xl/6xl relative text-text font-primary font-bold tracking-wide cursor-pointer"
+          href={name === "Services" ? "/services" : `/${name.toLowerCase()}`}
+        >
+          {name}
+        </Link>
+        <span className="text-white text-md font-secondary ">
+          {description}
+        </span>
+      </motion.div>
+    </>
   );
 }
 
@@ -81,7 +98,7 @@ export default function Services({ scrollY }) {
   const isMobile = useMediaQuery("(max-width: 768px)", false);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center pointer-events-none z-10 ">
+    <div className="fixed top-0 left-0 w-full h-screen flex flex-col items-center justify-center border z-10">
       {data.map((item, index) => (
         <ServiceItem
           key={index}
