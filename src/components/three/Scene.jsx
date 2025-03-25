@@ -39,7 +39,10 @@ export default function Scene({ scrollY, scrollY2 }) {
       />
       <Suspense fallback={null}>
         <CameraRig>
-          <Logo position={[0, -0.2, 0]} scale={isMobile ? 0.3 : 0.8} />
+          <Logo
+            position={[0, isMobile ? 0.1 : -0.2, 0]}
+            scale={isMobile ? 0.3 : 0.8}
+          />
         </CameraRig>
         <Exp scrollY={scrollY} />
         <TechnoLogo scrollY={scrollY2} />
