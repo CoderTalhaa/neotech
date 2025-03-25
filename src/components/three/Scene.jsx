@@ -10,7 +10,7 @@ import { Suspense, useState, useEffect } from "react";
 import CameraRig from "./experience/CameraRig";
 import { Logo } from "./experience/model/Logo";
 import TechnoLogo from "./experience/TechnoLogo";
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function Scene({ scrollY, scrollY2 }) {
   const [eventSource, setEventSource] = useState(null);
@@ -19,9 +19,7 @@ export default function Scene({ scrollY, scrollY2 }) {
     setEventSource(window);
   }, []);
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 1000px)",
-  });
+  const isMobile = useMediaQuery("(max-width: 768px)", false);
 
   return (
     <Canvas
@@ -41,7 +39,7 @@ export default function Scene({ scrollY, scrollY2 }) {
       />
       <Suspense fallback={null}>
         <CameraRig>
-          <Logo position={[0, -0.2, 0]} scale={isDesktopOrLaptop ? 0.8 : 0.4} />
+          <Logo position={[0, -0.2, 0]} scale={isMobile ? 0.3 : 0.8} />
         </CameraRig>
         <Exp scrollY={scrollY} />
         <TechnoLogo scrollY={scrollY2} />

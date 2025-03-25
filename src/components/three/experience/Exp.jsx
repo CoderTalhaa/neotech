@@ -5,12 +5,15 @@ import { Meter } from "./model/Meter";
 import { Network } from "./model/Network";
 import { useFrame } from "@react-three/fiber";
 import { useTransform } from "framer-motion";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function Exp({ scrollY }) {
   const cameraRef = useRef();
   const caseRef = useRef();
   const networkRef = useRef();
   const meterRef = useRef();
+
+  const isMobile = useMediaQuery("(max-width: 768px)", false);
 
   // Total height: 2000vh
   // 4 models: 500vh each
@@ -86,7 +89,7 @@ export default function Exp({ scrollY }) {
       <group ref={caseRef}>
         <Case
           scrollY={scrollY}
-          scale={2.5}
+          scale={isMobile ? 2 : 2.5}
           rotation={[0, Math.PI / -2.5, 0]}
           position={[0, -0.8, -0.2]}
         />
@@ -94,7 +97,7 @@ export default function Exp({ scrollY }) {
 
       <group ref={networkRef}>
         <Network
-          scale={2.6}
+          scale={isMobile ? 2 : 2.6}
           rotation={[0, Math.PI / -1.5, 0]}
           position={[0, -0.7, -0.3]}
         />
@@ -102,7 +105,7 @@ export default function Exp({ scrollY }) {
 
       <group ref={cameraRef}>
         <Camera
-          scale={0.7}
+          scale={isMobile ? 0.5 : 0.7}
           rotation={[0, Math.PI / -5, 0]}
           position={[0, 0, 0.5]}
         />
@@ -110,7 +113,7 @@ export default function Exp({ scrollY }) {
 
       <group ref={meterRef}>
         <Meter
-          scale={1.3}
+          scale={isMobile ? 1 : 1.3}
           rotation={[0, Math.PI / 1.1, 0]}
           position={[0, -0.5, 0.3]}
         />

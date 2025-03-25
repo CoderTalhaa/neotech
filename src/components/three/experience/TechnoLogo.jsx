@@ -2,9 +2,12 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useSpring, useTransform } from "framer-motion";
 import { Logo2 } from "./model/Logo2";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 export default function TechnoLogo({ scrollY }) {
   const logoRef = useRef();
+
+  const isMobile = useMediaQuery("(max-width: 768px)", false);
 
   const springConf = { stiffness: 100, damping: 20, mass: 0.1 };
 
@@ -44,7 +47,11 @@ export default function TechnoLogo({ scrollY }) {
 
   return (
     <group ref={logoRef}>
-      <Logo2 scale={0.5} position={[0, 0, 0]} rotation={[0, 0, 0]} />
+      <Logo2
+        scale={isMobile ? 0.4 : 0.5}
+        position={[0, 0, 0]}
+        rotation={[0, 0, 0]}
+      />
     </group>
   );
 }

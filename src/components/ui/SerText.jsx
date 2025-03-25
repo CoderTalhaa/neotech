@@ -16,7 +16,7 @@ export default function SerText() {
     <div className="container relative mt-10">
       <div className="flex flex-col gap-2 max-w-2xl ">
         <h1 className="~text-xl/3xl font-primary font-semibold">
-          <span className="relative p-3">
+          <span className="relative p-3 ">
             Why Choose US?
             <Underline_10 isInView={isInView} />
           </span>
@@ -59,6 +59,8 @@ export default function SerText() {
 
 const Underline_10 = ({ isInView }) => (
   <svg
+    width="100%"
+    height="100%"
     viewBox="0 0 454 126"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
