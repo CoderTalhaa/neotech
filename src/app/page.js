@@ -83,12 +83,25 @@ export default function Home() {
 
       <main className="relative min-h-screen bg-bg bg-custom-gradient ">
         <div className="container flex flex-col items-center justify-center h-[90vh] relative logo">
-          <h2 className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-xl/4xl font-nunito font-bold text-center">
+          <h2 className="absolute top-[70%] left-1/2 -translate-x-1/2 -translate-y-1/2 ~text-xl/4xl font-nunito font-bold text-center">
             Embracing Todays Technology
           </h2>
-          <Button className="absolute top-[90%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+          <Button className="absolute top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
             Get Started
           </Button>
+
+          <div className="absolute top-[93%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex gap-2 items-center">
+            <div>
+              <p className="~text-lg/3xl font-primary text-center">Scroll</p>
+            </div>
+            <div className="scrolldown mt-5" style={{ "--color": "skyblue" }}>
+              <div className="chevrons">
+                <div className="chevrondown"></div>
+                <div className="chevrondown"></div>
+              </div>
+            </div>
+            <p className="~text-lg/3xl font-primary text-center">Down</p>
+          </div>
         </div>
         <Marque />
       </main>
