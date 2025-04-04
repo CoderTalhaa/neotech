@@ -3,6 +3,7 @@ import {
   Environment,
   OrbitControls,
   PerspectiveCamera,
+  Sparkles,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Exp from "./experience/Exp";
@@ -46,6 +47,7 @@ export default function Scene({ scrollY, scrollY2 }) {
         </CameraRig>
         <Exp scrollY={scrollY} />
         <TechnoLogo scrollY={scrollY2} />
+        <Sparkles color="white" count={10000} scale={[-4, 4, 4]} size={2} />
       </Suspense>
 
       {/* <OrbitControls /> */}
