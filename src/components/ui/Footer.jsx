@@ -5,7 +5,7 @@ import NavLink from "../utils/nav/NavLink";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#001e30c7] flex flex-col lg:flex-row justify-between p-3 items-start lg:items-center  gap-2">
+    <footer className="bg-[#001e30c7] relative z-10 flex flex-col lg:flex-row justify-between p-3 items-start lg:items-center  gap-2">
       <div className="relative w-[140px]">
         <Image alt="logo" src={"/img/logo.png"} width={100} height={100} />
       </div>

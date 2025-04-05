@@ -12,6 +12,7 @@ import CameraRig from "./experience/CameraRig";
 import { Logo } from "./experience/model/Logo";
 import TechnoLogo from "./experience/TechnoLogo";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { GradientSky } from "./experience/GradientSky";
 
 export default function Scene({ scrollY, scrollY2 }) {
   const [eventSource, setEventSource] = useState(null);
@@ -39,6 +40,7 @@ export default function Scene({ scrollY, scrollY2 }) {
         far={1000}
       />
       <Suspense fallback={null}>
+        <GradientSky />
         <CameraRig>
           <Logo
             position={[0, isMobile ? 0.1 : -0.2, 0]}
@@ -47,7 +49,7 @@ export default function Scene({ scrollY, scrollY2 }) {
         </CameraRig>
         <Exp scrollY={scrollY} />
         <TechnoLogo scrollY={scrollY2} />
-        <Sparkles color="white" count={10000} scale={[-4, 4, 4]} size={2} />
+        <Sparkles color="white" count={200} scale={[-5, 4, 5]} size={2} />
       </Suspense>
 
       {/* <OrbitControls /> */}
